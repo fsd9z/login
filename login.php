@@ -7,11 +7,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // For demo purposes, let's check if the username and password are "demo" and "password"
 
     if ($username === "demo" && $password === "password") {
-        // Successful login
-        echo "Login successful! Welcome, " . $username;
+        header("Location: success_page.html"); // Redirect to success page
+        exit(); // Stop further execution
     } else {
-        // Invalid credentials
-        echo "Invalid username or password. Please try again.";
+        header("Location: invalid.php"); // Redirect to invalid page
+        exit(); // Stop further execution
     }
 }
 ?>
