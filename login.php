@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // For demo purposes, let's check if the username and password are "demo" and "password"
 
     if ($username === "demo" && $password === "password") {
-        header("Location: success_page.html"); // Redirect to success page
+        header("Location: loginsucess.html"); // Redirect to success page
         exit(); // Stop further execution
     } else {
         header("Location: invalid.php"); // Redirect to invalid page
