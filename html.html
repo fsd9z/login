@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page with Image</title>
+    <style>
+        /* Your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* Three-fourths and one-fourth */
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .left-section {
+            background-image: url('https://w.forfun.com/fetch/28/28179fa607bcd9a4dd485719e9d820f2.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-section {
+            background-color: #fff; /* White background for the login */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .login-container {
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #3498db;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05); /* Increase size on hover */
+        }
+
+        .link-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .link-text a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .link-text a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left-section">
+        <!-- Image or Video Embed (Whichever you prefer) -->
+    </div>
+    <div class="login-section">
+        <!-- Login form for one-fourth -->
+        <div class="login-container">
+            <h2>Login</h2>
+            <form action="login.php" method="POST" id="loginForm">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <br>
+                <button type="submit" class="button">Login</button>
+                <div class="error-message" id="errorMsg">Please enter a username</div>
+            </form>
+            <div class="link-text">
+                <p>Forgot <a href="your_link_for_passwords">password</a> or <a href="your_link_for_usernames">username</a>?</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const errorMessage = document.getElementById('errorMsg');
+
+        loginForm.addEventListener('submit', function(event) {
+            if (usernameInput.value.trim() === '') {
+                event.preventDefault(); // Prevent form submission
+                errorMessage.style.display = 'block'; // Show error message
+            }
+        });
+
+        usernameInput.addEventListener('input', function() {
+            errorMessage.style.display = 'none'; // Hide error message when input changes
+        });
+    </script>
+</body>
+
+</html>
